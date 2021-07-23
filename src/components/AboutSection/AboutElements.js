@@ -1,20 +1,38 @@
 import styled, { keyframes } from "styled-components";
 
 export const AboutContainer = styled.section`
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
   background: #f5f5f5;
+`;
 
-  @media screen and (max-width: 768px) {
-    height: 1300px;
-  }
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(90%, 900px);
 
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-  }
+  padding: 2rem 0;
+`;
 
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    height: 100vh;
+export const AboutBoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    > * {
+      flex-basis: 100%;
+    }
+    > * + * {
+      margin-left: 2em;
+    }
   }
 `;
 
@@ -24,12 +42,12 @@ const headingAnimation = keyframes`
 `;
 
 export const Heading = styled.h1`
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #05386b;
-  margin-top: 64px;
+  margin-bottom: 1em;
 
   @media screen and (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   animation-name: ${({ isAnimated }) =>
@@ -37,10 +55,6 @@ export const Heading = styled.h1`
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.3rem;
-  }
 `;
 
 const titleAnimation = keyframes`
@@ -58,24 +72,6 @@ export const Title = styled.h2`
   animation-timing-function: ease-in-out;
 `;
 
-export const AboutBoxWrapper = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 16px;
-  padding: 0 50px;
-
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
 export const AboutBox = styled.div`
   border: 2px solid #e5e5e5;
   box-shadow: 5px 5px 5px #888, -5px -5px 5px #efefef;
@@ -88,10 +84,10 @@ export const AboutBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-height: 340px;
   padding: 20px;
 
-  &:hover {
+  &:hover,
+  &:active {
     transform: translate(-5px, -5px);
     box-shadow: 15px 15px 15px #888, -15px -15px 15px #efefef;
   }
@@ -117,12 +113,4 @@ export const Subtitle = styled.p`
   animation-duration: 0.6s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
-`;
-
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translate(0, -10%);
 `;

@@ -1,22 +1,24 @@
 import styled, { keyframes } from "styled-components";
 
 export const ProjectContainer = styled.section`
-  justify-content: center;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
   background: #f5f5f5;
+`;
 
-  @media screen and (max-width: 768px) {
-    height: 1900px;
-  }
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(90%, 900px);
 
-  @media screen and (max-width: 480px) {
-    height: 1900px;
-  }
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    height: 100vh;
-  }
+  padding: 2rem 0;
 `;
 
 const headingAnimation = keyframes`
@@ -25,54 +27,53 @@ const headingAnimation = keyframes`
 `;
 
 export const Heading = styled.h2`
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #05386b;
-  margin-bottom: 64px;
+  margin-bottom: 1em;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 
   animation-name: ${({ isAnimated }) =>
     isAnimated ? headingAnimation : "none"};
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
-
-  @media screen and (max-width: 480px) {
-    font-size: 2rem;
-  }
 `;
 
 export const ProjectBoxWrapper = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 50px;
-  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 900px);
 
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
+  > * {
+    margin-bottom: 2em;
   }
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    > * {
+      flex-basis: 33%;
+    }
   }
 `;
 
 export const ProjectBox = styled.div`
-  height: 200px;
-  width: 200px;
-
   display: flex;
+
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-height: 340px;
 
   background: transparent;
   perspective: 1000px;
 `;
 
 export const FlipCardInner = styled.div`
+  width: 100%;
+  height: 250px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -84,8 +85,14 @@ export const FlipCardInner = styled.div`
 `;
 
 export const FrontCard = styled.div`
+  width: 90%;
+  height: 100%;
   position: absolute;
   background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
@@ -98,8 +105,8 @@ export const FrontCard = styled.div`
 export const BackCard = styled.div`
   position: absolute;
   transform: rotateY(180deg);
-  height: 205px;
-  width: 205px;
+  width: 90%;
+  height: 100%;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -144,12 +151,4 @@ export const Button = styled.a`
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
-`;
-
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translate(0, -10%);
 `;

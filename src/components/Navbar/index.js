@@ -11,7 +11,7 @@ import {
 import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, opacity }) => {
   const [scrollAction, setScrollAction] = useState(false);
 
   const onScroll = () => {
@@ -33,7 +33,7 @@ const Navbar = ({ toggle }) => {
 
   return (
     <>
-      <Nav scrollAction={scrollAction}>
+      <Nav scrollAction={scrollAction} opacity={opacity}>
         <NavbarContainer>
           <NavLogo to="/" onClick={toggleHome}>
             Portfolio

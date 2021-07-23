@@ -7,60 +7,34 @@ export const HeroContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
   position: relative;
   z-index: 1;
-
-  // Small devices (landscape phones, 576px and up)
-  @media (max-width: 768px) {
-    height: 750px;
-  }
-
-  // Medium devices (tablets, 768px and up)
-  @media (min-width: 768px) {
-    height: 1024px;
-  }
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    height: 100vh;
-  }
 `;
 
 export const HeroWrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: min(90%, 900px);
+
+  margin-top: 80px;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    > * {
+      flex-basis: 100%;
+    }
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 
-  height: 100%;
-  width: 100%;
-  max-width: 1100px;
-`;
-
-export const HeroRow = styled.div`
-  display: grid;
-  align-items: center;
-
-  grid-auto-columns: minmax(auto, 1fr);
-
-  // Small devices (landscape phones, 576px and up)
-  @media (max-width: 992px) {
-    grid-template-areas: "lastCol lastCol" "firstCol firstCol";
+  @media screen and (max-width: 800px) {
+    align-items: center;
   }
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    grid-template-areas: "firstCol lastCol";
-  }
-`;
-
-export const FirstColumn = styled.div`
-  padding: 0 24px;
-  grid-area: firstCol;
-`;
-export const LastColumn = styled.div`
-  padding: 0 24px;
-  grid-area: lastCol;
 `;
 
 export const TextWrapper = styled.div`
@@ -80,6 +54,7 @@ export const Heading = styled.h2`
   font-size: 1.5rem;
   font-weight: 600;
   color: #05386b;
+  margin-bottom: 0.3em;
 
   animation-name: ${({ isAnimated }) =>
     isAnimated ? headingAnimation : "none"};
@@ -150,8 +125,6 @@ const imgAnimation = keyframes`
 `;
 
 export const ImgWrap = styled.div`
-  max-width: 550px;
-  height: 100%;
   display: flex;
   justify-content: center;
 
@@ -162,8 +135,7 @@ export const ImgWrap = styled.div`
 `;
 
 export const Video = styled.video`
-  width: 100%;
-
+  width: 90%;
   padding: 0;
   background: transparent;
   -o-object-fit: cover;
@@ -221,7 +193,7 @@ const SocialIconAnimation = keyframes`
 export const SocialIconsLink = styled.a`
   color: #05386b;
   font-size: 28px;
-  margin-right: 20px;
+
   overflow: hidden;
   cursor: pointer;
 
@@ -230,4 +202,8 @@ export const SocialIconsLink = styled.a`
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
+
+  + * {
+    margin-left: 0.5em;
+  }
 `;
