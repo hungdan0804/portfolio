@@ -28,6 +28,10 @@ export const NavbarContainer = styled.div`
   height: 80px;
   width: min(90%, 900px);
   z-index: 1;
+
+  > * {
+    flex-basis: 100%;
+  }
 `;
 
 export const NavLogo = styled(LinkRouter)`
@@ -64,11 +68,10 @@ export const MobileIcon = styled.div`
 export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   text-align: center;
 
   list-style: none;
-
-  margin-right: -22px;
 
   @media screen and (max-width: 768px) {
     display: none;
