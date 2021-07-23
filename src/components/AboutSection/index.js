@@ -7,11 +7,11 @@ import {
   Title,
   Subtitle,
   AboutIcon,
+  ContentWrapper,
 } from "./AboutElements";
 import ImgEducation from "../../images/education.svg";
 import ImgWorking from "../../images/working.svg";
 import ImgSkill from "../../images/skill.svg";
-import { ContentWrapper } from "../ProjectSection/ProjectElements";
 
 const AboutSection = () => {
   const ref = useRef(null);

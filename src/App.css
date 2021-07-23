@@ -5,11 +5,9 @@
   font-family: "Encode Sans Expanded", sans-serif;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .flip-card {
@@ -18,6 +16,7 @@ section {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:active .flip-card-inner {
   transform: rotateY(180deg);
 }

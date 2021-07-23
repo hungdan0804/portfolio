@@ -5,6 +5,9 @@ import { Link as LinkScroll } from "react-scroll";
 export const Nav = styled.nav`
   background: #5cdb95;
 
+  opacity: ${({ opacity }) => opacity};
+  transition: 0.8s all ease;
+
   height: 80px;
   margin-top: -80px;
   top: 0;
@@ -16,10 +19,6 @@ export const Nav = styled.nav`
   position: sticky;
 
   font-size: 1rem;
-
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
-  }
 `;
 
 export const NavbarContainer = styled.div`
@@ -27,21 +26,8 @@ export const NavbarContainer = styled.div`
   justify-content: space-between;
 
   height: 80px;
-  width: 100%;
+  width: min(90%, 900px);
   z-index: 1;
-  padding: 0 24px;
-
-  max-width: 1100px;
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    height: 100px;
-  }
-
-  // Extra large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) {
-    height: 120px;
-  }
 `;
 
 export const NavLogo = styled(LinkRouter)`
